@@ -35,6 +35,13 @@ steps:
     pathToPublish: '$(Build.ArtifactStagingDirectory)'
     artifactName: 'drop'
 
+- task: DownloadBuildArtifacts@0
+  inputs:
+    buildType: 'current'
+    downloadType: 'single'
+    artifactName: 'drop'
+    downloadPath: '$(Pipeline.Workspace)'
+
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'my-app-ado-con'
