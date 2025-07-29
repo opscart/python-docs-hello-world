@@ -37,6 +37,6 @@ steps:
 
 - task: AzureWebApp@1
   inputs:
-    azureSubscription: '<your-service-connection>'
+    azureSubscription: 'my-app-ado-con'
     appName: 'hello-ai-flask'
     package: '$(Pipeline.Workspace)/drop/app.zip'
