@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-import autogen
+import pyautogen as autogen
 import os
 
 app = Flask(__name__)
