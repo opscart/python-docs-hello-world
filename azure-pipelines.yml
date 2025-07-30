@@ -10,12 +10,21 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  pythonVersion: '3.8'
+  - name: pythonVersion
+    value: '3.8'
+  - group: devops-ai-agent-group
 
 steps:
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '$(pythonVersion)'
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      echo "API Key passed"
+  env:
+    OPENAI_API_KEY: $(OPENAI_API_KEY)
 
 - script: |
     python -m pip install --upgrade pip
